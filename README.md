@@ -97,7 +97,7 @@ Under projektet - senast 1 februari bjuder du in dina lärare. Se Settings -> Ma
 
 ## Grundläggande krav
 
-- I applikation ska du använda en enpoint som gör det möjligt för en användare att söka via ett fritext fält (input type="text"). Ett exempel på en sådan endpoint är **NASA Image and Video Library**
+- I applikation ska du använda en enpoint som gör det möjligt för en användare att söka via ett fritext fält (input type="text"). Ett exempel på en sådan endpoint är **NASA Image and Video Library**. [Se dokumentation](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf)
 - Ett resultat ska presenteras och kunna filtreras efter någon valbar egenskap
 - Appen ska utgå från mobile first. Dvs när ni utvecklar så antag ex en viewport likt en iPhone 11
 
