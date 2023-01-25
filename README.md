@@ -94,6 +94,18 @@ Under projektet - senast 1 februari bjuder du in dina lärare. Se Settings -> Ma
 - addkolon (Mattias)
 - martin-glimakra (Martin)
 
+## Din API-nycke
+En API-nyckel som tillhör dig bör du inte dela med andra. Samtidigt ska det vara tydligt för den som vill använda din applikation att veta hur man använder en egen API-nyckel. I det här projektet kan du definiera en variabel som du kan lämna tom när du ex lämnar in projektet: 
+
+```js
+// ange din API-nyckel
+const APIKey = "QWUTBusTD12baf0iIiWwOw3EatYvfeb38PFgDGvx";
+
+// ...
+
+// endpoint url
+let endpoint = `https://api.nasa.gov/planetary/apod?api_key=${APIKey}`
+```
 
 ## Grundläggande krav
 
