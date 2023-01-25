@@ -94,7 +94,7 @@ Under projektet - senast 1 februari bjuder du in dina lärare. Se Settings -> Ma
 - addkolon (Mattias)
 - martin-glimakra (Martin)
 
-## Din API-nycke
+## Din API-nyckel
 En API-nyckel som tillhör dig bör du inte dela med andra. Samtidigt ska det vara tydligt för den som vill använda din applikation att veta hur man använder en egen API-nyckel. I det här projektet kan du definiera en variabel som du kan lämna tom när du ex lämnar in projektet: 
 
 ```js
