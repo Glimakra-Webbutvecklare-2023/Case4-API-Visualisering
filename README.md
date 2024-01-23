@@ -131,7 +131,7 @@ Här finns följande utmaningar. Se om du kan anta en eller flera!
 
 
 ## Inlämning och redovisning 
-- Preliminärt datum för redovisning av caset är den 9 februari kl 08:45. OBS - datum kommer förmodligen justeras ngt.
+- Datum för redovisning av caset är den 7 februari kl 08:45.
 - Caset ska finnas färdigt i ett Gihub repo i samband med redovisningen
 - Tänk på att inte visa console.log() i ett färdigt projekt. 
 
