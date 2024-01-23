@@ -7,22 +7,23 @@ Case under modul 4: API-Visualisering
 ## Introduktion
 I caset ska ni arbeta individuellt och skapa en applikation (webbsida) som visualiserar data som hämtas från ett API. Applikation ska visualisera data som kan hämtas via ett API som Nasa (National Aeronautics and Space Administration) tillhandahåller.
 
-Att visualisera data innebär i praktiken att ni med HTML, CSS och JavaScript ska skapa ngn form av dynamiskt galleri med det innehäll som en GET request genererar.
+Att visualisera data innebär i praktiken att ni med HTML, CSS och JavaScript ska skapa ett dynamiskt galleri med det innehåll från [https://api.nasa.gov](https://api.nasa.gov).
 
-Det ska vara en applikation som har header, footer, nav och andra lämpliga sematiska element. Första gången applikationen visas ska den fungera som en landningssida - en användare ska tydligt uppleva att det är en sida som handlar om rymden och rymdforskning. Galleriet ska kunna hämtas efter det att en användare väljer att hämta ett innehåll. 
+Det ska vara en applikation som har header, footer, nav och andra lämpliga sematiska element. Första gången applikationen visas ska den fungera som en landningssida - en användare ska tydligt uppleva att det är en sida som handlar om rymden och rymdforskning. Användaren ska få olika resultat beroende på hens sökning.
 
 ## API
 
 ### Nasa API
 [https://api.nasa.gov](https://api.nasa.gov)
 
-Tjänsten är gratis att använda, men har begränsingar i antalet förfrågningar. Med tjänsten kan du komma olika typer av data som handlar om rymden och rymdforskning. För att använda tjänsten finns en förvald API nyckel: `DEMO_KEY`. Du kan med fördel generera en egen unik API nyckel. Nyckeln får du efter att du registrerat dig som användare. En egen nyckel kan se ut så här: `QWUTBusTD12baf0iIiWwOw3EatYvfeb38PFgDGvx`
+Tjänsten är gratis att använda, **men har begränsingar i antalet förfrågningar**. Med tjänsten kan du komma olika typer av data som handlar om rymden och rymdforskning. För att använda tjänsten finns en förvald API nyckel: `DEMO_KEY`. Du kan med fördel generera en egen unik API nyckel. Nyckeln får du efter att du registrerat dig som användare. En egen nyckel kan se ut så här: `QWUTBusTD12baf0iIiWwOw3EatYvfeb38PFgDGvx`
 
 När du registrerat dig så visas din API-nyckel. Spara nyckeln så att du kan göra kommande förfrågningar mot API:et 
 
 ![API nyckel](/images/nasa-api-2.png)
 
 ### Exempel på olika endpoints för Nasas API 
+Nasas har flera olika resurser att välja mellan:
 
 https://api.nasa.gov/#browseAPI
 
@@ -54,7 +55,7 @@ https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key
 Här hämtar API:et information från olika fordon som finns på Mars.  
 
 
-#### Tips
+#### Viktigt Tips
 EFtersom man kan göra ett begränsat antal förfrågningar så bör ni spara ner en json respons och spara det som en lokal fil i er utvecklingsmiljö. När ni utvecklar kan ni ibland hämta verkliga data, och ibland data från en lokal fil. Ex:
 
 ```javascript
@@ -67,16 +68,16 @@ EFtersom man kan göra ett begränsat antal förfrågningar så bör ni spara ne
 ## Wireframes - LoFi & HiFi -> Prototyp
 Även om denna produkten ni skall skapa antagligen kommer vara enbart en vy så kommer det säkert finnas ett flöde (t ex filtrering).
 
-Att ta fram:
+Att ta fram och visa Mattias:
 - En LoFi-wireframe som förklarar strukturen och flödet (Valfritt)
 - En HiFi-wireframe som förklarar strukturen och flödet (Figma)
 - Prototyp i Figma med ett interaktivt flöde
-- Ni får använda er av befintliga UI-kits, men sätt gärna er egen touch på det.
+- Ni får använda er av befintliga UI-kits från Figma, men sätt gärna er egen touch på det.
 
 ## Namngivningsprinciper när du kodar
 - använd latinska tecken för variabelnamn och funktioner (camelCase) 
-- skriv kommentarer i din kod
-- skriv kod med indrag (indentation)
+- skriv kommentarer med egna ord i din kod (så vi vet att ni förstår er egen kod)
+- korrekt formaterat kod
 
 ## Om koden i applikationen 
 Applikationen får inte använda externa ramverk, utan det är "vanilla" JavaScript och CSS som gäller.
@@ -87,12 +88,11 @@ Dela upp struktur, innehåll, design och logik. Använd externa filer för CSS o
 Skapa ett privat repo på GitHub och koppla det till din lokala utvecklingsmiljö. 
 Under projektet - senast 1 februari bjuder du in dina lärare. Se Settings -> Manage access -> Add people
 
-*Lägg till:*
+*Bjud in följande användare till ert case repo:*
 
 - frozenbanana (Henry)
 - andsju (Anders)
 - addkolon (Mattias)
-- martin-glimakra (Martin)
 
 ## Din API-nyckel
 En API-nyckel som tillhör dig bör du inte dela med andra. Samtidigt ska det vara tydligt för den som vill använda din applikation att veta hur man använder en egen API-nyckel. I det här projektet kan du definiera en variabel som du kan lämna tom när du ex lämnar in projektet: 
@@ -104,17 +104,17 @@ const APIKey = "QWUTBusTD12baf0iIiWwOw3EatYvfeb38PFgDGvx";
 // ...
 
 // endpoint url
-let endpoint = `https://api.nasa.gov/planetary/apod?api_key=${APIKey}`
+const endpoint = `https://api.nasa.gov/planetary/apod?api_key=${APIKey}`
 ```
 
 ## Grundläggande krav
 
-- I applikation ska du använda en enpoint som gör det möjligt för en användare att söka via ett fritext fält (input type="text"). Ett exempel på en sådan endpoint är **NASA Image and Video Library**. [Se dokumentation](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf) (Om du vill använda en endpoint som inte hanterar sökning i ett fritext fält (ett ex är endpoint för **Mars Rover Photos**) är alternativet att använda formulärfält som tillåter någon typ av urvalskriterier, ex visa bilder från vissa kameror. Det kan vara html element som select-option, input type="checkbox").
-- Ett resultat ska presenteras och kunna filtreras efter någon valbar egenskap
-- Appen ska utgå från mobile first. Dvs när ni utvecklar så antag ex en viewport likt en iPhone 11
+- I applikation ska du använda en enpoint som gör det **möjligt för en användare att söka** via ett fritext fält (input type="text"). Ett exempel på en sådan endpoint är **NASA Image and Video Library**. [Se dokumentation](https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf) (Om du vill använda en endpoint som inte hanterar sökning i ett fritext fält (ett ex är endpoint för **Mars Rover Photos**) är alternativet att använda formulärfält som tillåter någon typ av urvalskriterier, ex visa bilder från vissa kameror. Det kan vara html element som select-option, input type="checkbox").
+- Ett **resultat ska presenteras och kunna filtreras** med array metoden filter efter någon valbar egenskap
+- Appen ska utgå från **mobile first**. Dvs när ni utvecklar så antag ex en viewport likt en iPhone 11
 
 
-Utvecklingen av applikationen ska finnas dokumenterad på GitHub. Du ska ha gjort minst 10 commits under projektet.
+Utvecklingen av applikationen ska finnas dokumenterad på GitHub. Du ska ha gjort **minst 10 commits** under projektet.
 
 
 ## Utmaningar
@@ -151,5 +151,5 @@ I reovisningen ska du:
 Det kommer givetvis finnas möjlighet till handledning - i första hand är det handledning under vanlig lektionstid.
 
 ## Resurser
-- Dokumentation och genomgångar: https://glimnet.sharepoint.com/sites/WUT22Webbutvecklare/SitePages/Fortsatttning-JavaScript.aspx
+- NASA api: https://api.nasa.gov
 - Fetch: https://github.com/thejsway/thejsway/blob/master/manuscript/chapter21.md
